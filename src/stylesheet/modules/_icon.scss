@@ -1,0 +1,10 @@
+.icon {
+  @include pxRem(font-size, 16);
+  display: inline-flex;
+  align-self: center;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}

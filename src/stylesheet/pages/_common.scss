@@ -1,0 +1,25 @@
+.page-container {
+  padding-top: $header-height;
+  height: 100%;
+}
+
+.page {
+  position: relative;
+  height: 100%;
+}
+
+.page-error,
+.page-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.page-error {
+  color: #707070;
+}

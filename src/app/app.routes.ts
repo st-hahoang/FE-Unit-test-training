@@ -1,7 +1,8 @@
-import authRoutes from '@app/core/auth/auth.routes';
+import authRoutes from './core/auth/auth.routes';
+import { PageRoute } from './core/modules/custom-router-dom/router.interface';
 import pageRoutes from './pages/page.routes';
 
-const appRoutes = [
+const appRoutes: PageRoute[] = [
   ...authRoutes,
   ...pageRoutes
 ];

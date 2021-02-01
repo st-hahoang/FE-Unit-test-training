@@ -1,11 +1,17 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { privateRoute } from './PrivateRoute';
 
 function renderRoute(routes) {
   return routes.map((route: any, index: number) => {
+    // Redirect router
+    if (route.redirect && !route.element) {
+      route.element = () => <Navigate to={route.redirect} />;
+    }
+
     const PrivateRoute = privateRoute(route.element);
+
     return (
       <Route
         key={ index }

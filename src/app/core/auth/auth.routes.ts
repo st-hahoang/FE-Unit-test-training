@@ -1,18 +1,23 @@
 import Login from './containers/Login';
 import Register from './containers/Register';
 import Auth from './Auth';
+import { PageRoute } from '../modules/custom-router-dom/router.interface';
 
-const authRoutes = [
+const authRoutes: PageRoute[] = [
   {
-    path: 'auth',
+    path: '/auth',
     element: Auth,
     children: [
       {
-        path: 'login',
+        path: '/',
+        redirect: 'login'
+      },
+      {
+        path: '/login',
         element: Login
       },
       {
-        path: 'register',
+        path: '/register',
         element: Register
       }
     ]

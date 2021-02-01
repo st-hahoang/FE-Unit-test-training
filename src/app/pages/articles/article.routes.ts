@@ -1,19 +1,20 @@
+import { PageRoute } from '@core/modules/custom-router-dom/router.interface';
 import ArticleDetail from './containers/ArticleDetail';
 import ArticleList from './containers/ArticleList';
 import Articles from './containers/Articles';
 
-const articleRoutes = [
+const articleRoutes: PageRoute[] = [
   {
-    path: 'articles',
+    path: '/articles',
     element: Articles,
     isProtected: true,
     children: [
       {
-        path: '',
+        path: '/',
         element: ArticleList
       },
       {
-        path: ':id',
+        path: '/:id',
         element: ArticleDetail
       }
     ]

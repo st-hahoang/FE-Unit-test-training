@@ -1,10 +1,9 @@
-import React from 'react';
-
+import { PageRoute } from '@core/modules/custom-router-dom/router.interface';
 import Home from './containers/Home';
 
-const homeRoutes = [
+const homeRoutes: PageRoute[] = [
   {
-    path: '',
+    path: '/',
     element: Home
   }
 ];

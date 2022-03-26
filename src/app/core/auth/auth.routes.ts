@@ -5,19 +5,19 @@ import { PageRoute } from '../modules/custom-router-dom/router.interface';
 
 const authRoutes: PageRoute[] = [
   {
-    path: '/auth',
+    path: 'auth',
     element: Auth,
     children: [
+      // {
+      //   path: '/',
+      //   redirect: 'login'
+      // },
       {
-        path: '/',
-        redirect: 'login'
-      },
-      {
-        path: '/login',
+        path: 'login',
         element: Login
       },
       {
-        path: '/register',
+        path: 'register',
         element: Register
       }
     ]

@@ -1,6 +1,3 @@
-import 'core-js/stable'; // For IE
-import 'regenerator-runtime/runtime'; // For IE
-
 import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';

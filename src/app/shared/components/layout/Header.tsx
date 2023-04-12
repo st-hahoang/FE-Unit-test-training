@@ -25,7 +25,7 @@ export const Header = (): JSX.Element => {
           {
             userInfo
             ? <li className="menu-item">
-                <Link to="#">{ userInfo.display_name}</Link>
+                <Link to="#">{ userInfo.display_name }</Link>
               </li>
             : <>
                 <li className="menu-item">

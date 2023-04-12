@@ -10,7 +10,7 @@ const Login = () => {
 
   const onLogin = () => {
     setIsRequesting(true);
-    const account = { email: 'trang.nguyen@supremetech.vn', password: 'Trang@1234' };
+    const account = { username: 'username', password: 'password' };
     dispatch(
       signIn(account)
     ).finally(() => {
@@ -20,7 +20,12 @@ const Login = () => {
 
   return (
     <div>
-      <button onClick={onLogin} disabled={isRequesting}>Login</button>
+      <button
+        onClick={onLogin}
+        disabled={isRequesting}
+      >
+        Login
+      </button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 interface AccountAttributes {
-  email: string;
+  username: string;
   password: string;
 }
 

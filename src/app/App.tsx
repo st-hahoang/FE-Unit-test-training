@@ -13,7 +13,7 @@ import AppSuspense from './AppSuspense';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={ store }>
+  <Provider store={store}>
     <BrowserRouter>
       <AppSuspense fallback={<></>}>
         <Header />

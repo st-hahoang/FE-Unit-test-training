@@ -9,8 +9,10 @@ const Home = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const onUpdateProfile = () => {
-    // eslint-disable-next-line camelcase
-    dispatch(updateUserInfo({ display_name: 'Trang Nguyen T.' }));
+    dispatch(
+      // eslint-disable-next-line camelcase
+      updateUserInfo({ display_name: 'Trang Nguyen T.' })
+    );
   };
 
   return (

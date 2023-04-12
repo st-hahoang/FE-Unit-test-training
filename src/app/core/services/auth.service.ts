@@ -1,6 +1,7 @@
 import AuthHelper from '../helpers/authHelper';
 import { ENDPOINT } from '@config/endpoint';
 import { ApiService } from './api.service';
+import { AccountAttributes } from '@shared/types/account';
 
 export class AuthService extends AuthHelper {
   http = new ApiService();
@@ -9,7 +10,7 @@ export class AuthService extends AuthHelper {
     super();
   }
 
-  async signIn(body: any) {
+  async signIn(body: AccountAttributes) {
     /* this is the default signIn,
       If you want to override it, please write the same function in specific type of auth.
     */

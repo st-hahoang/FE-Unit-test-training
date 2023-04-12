@@ -3,31 +3,27 @@ import { createSlice } from '@reduxjs/toolkit';
 import { signIn } from './auth.middleware';
 
 const initialState = {
-  isLoading: false,
-  isProcessing: false,
-  hasError: false,
-  data: null,
-  error: null,
+  userInfo: null
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    updateUserInfo: (state, { payload }) => {
+      state.userInfo = { ...state.userInfo, ...payload };
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(signIn.pending, (state) => {
-        state.hasError = false;
-        state.isLoading = true;
+        // do something
       })
-      .addCase(signIn.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.data = action.payload;
+      .addCase(signIn.fulfilled, (state, { payload }) => {
+        state.userInfo = payload;
       })
       .addCase(signIn.rejected, (state, action) => {
-        state.isLoading = false;
-        state.hasError = true;
-        state.error = action.error;
+        // do something
       });
   }
 });

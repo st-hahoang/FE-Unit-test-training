@@ -9,6 +9,8 @@ export const signIn = createAsyncThunk(
   'auth/signIn',
   async (account: AccountAttributes) => {
     const response: any = await auth.signIn(account);
-    return response.access_token;
+    auth.setToken(response.access_token);
+    const userInfo = auth.getUserInfo();
+    return userInfo;
   }
 );

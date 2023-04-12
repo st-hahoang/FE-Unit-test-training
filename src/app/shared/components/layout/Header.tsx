@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import i18next from 'i18next';
 
 import { LANGUAGES } from '@app/core/services/i18n.service';
+import { RootState, useAppSelector } from '@app/store';
 
 export const Header = (): JSX.Element => {
+  const { userInfo } = useAppSelector((state: RootState) => state.auth);
 
   const changeLang = (lang: string) => {
     i18next.changeLanguage(lang);
@@ -20,12 +22,20 @@ export const Header = (): JSX.Element => {
           <li className="menu-item">
             <Link to="articles">Articles</Link>
           </li>
-          <li className="menu-item">
-            <Link to="auth/login">Login</Link>
-          </li>
-          <li className="menu-item">
-            <Link to="auth/register">Register</Link>
-          </li>
+          {
+            userInfo
+            ? <li className="menu-item">
+                <Link to="#">{ userInfo.display_name}</Link>
+              </li>
+            : <>
+                <li className="menu-item">
+                  <Link to="auth/login">Login</Link>
+                </li>
+                <li className="menu-item">
+                  <Link to="auth/register">Register</Link>
+                </li>
+              </>
+          }
         </ul>
       </nav>
       <ul className="menu menu-lang">

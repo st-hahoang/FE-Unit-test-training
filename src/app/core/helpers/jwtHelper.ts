@@ -47,7 +47,7 @@ export default class JwtHelper extends AuthStorageService implements AuthHelperI
     const { isTokenValid, token } = this._verifyJWTToken();
     if (isTokenValid) {
       const res: any = JwtDecode(token);
-      return res.data;
+      return res.user;
     } else {
       return null;
     }

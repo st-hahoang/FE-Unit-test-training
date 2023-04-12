@@ -5,6 +5,6 @@ const RESOURCES = {
 export const ENDPOINT = {
   auth: {
     index: `${RESOURCES.auth}`,
-    login: `${RESOURCES.auth}/login`
+    login: 'users/signin'
   }
 };

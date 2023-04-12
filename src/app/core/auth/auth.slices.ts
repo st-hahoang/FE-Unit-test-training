@@ -21,9 +21,11 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(signIn.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.data = action.payload;
       })
       .addCase(signIn.rejected, (state, action) => {
+        state.isLoading = false;
         state.hasError = true;
         state.error = action.error;
       });

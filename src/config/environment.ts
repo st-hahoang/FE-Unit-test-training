@@ -1,3 +1,3 @@
 export const environment = {
-  apiBaseUrl: 'https://nuxt-todo-server.herokuapp.com/api/'
+  apiBaseUrl: 'https://dev.api.today.ly/api/v1'
 };

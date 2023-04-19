@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch } from '@app/store';
-import { updateUserInfo } from '@core/auth/auth.slices';
+import { updateUserInfo } from '@app/core/auth/auth.slice';
 
 const Home = (): JSX.Element => {
   const { t } = useTranslation('common');

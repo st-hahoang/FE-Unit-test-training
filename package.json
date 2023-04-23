@@ -104,8 +104,5 @@
   "resolutions": {
     "dns-packet": ">=5.2.2",
     "ws": ">=7.4.6"
-  },
-  "jest": {
-    "testEnvironment": "jsdom"
   }
 }

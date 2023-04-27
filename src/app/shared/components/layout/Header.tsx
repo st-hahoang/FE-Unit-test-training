@@ -18,13 +18,7 @@ export const Header = (): JSX.Element => {
             <Link to="">Home</Link>
           </li>
           <li className="menu-item">
-            <Link to="articles">Articles</Link>
-          </li>
-          <li className="menu-item">
-            <Link to="auth/login">Login</Link>
-          </li>
-          <li className="menu-item">
-            <Link to="auth/register">Register</Link>
+            <Link to="/users">List user</Link>
           </li>
         </ul>
       </nav>

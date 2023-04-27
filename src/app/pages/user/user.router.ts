@@ -8,7 +8,7 @@ const UserDetail = React.lazy(() => import('./containers/UserDetail'));
 
 const userRoutes: PageRoute[] = [
   {
-    path: 'user',
+    path: 'users',
     element: User,
     children: [
       {

@@ -33,9 +33,6 @@ root.render(
       <AppSuspense fallback={<></>}>
         <RouterOutlet routes={appRoutes} />
       </AppSuspense>
-      <AppSuspense fallback={<></>}>
-        <Footer />
-      </AppSuspense>
     </BrowserRouter>
   </Provider>
 );

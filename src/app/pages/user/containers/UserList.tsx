@@ -20,21 +20,21 @@ const UserList = () => {
       {isLoading && <p data-testid="loading">Loading...</p>}
       <h2>User List</h2>
       {error && <p data-testid="error">Error</p>}
-      <ul data-testid="user-list" className="user-list">
         {
-          dataList.length ? dataList.map((item) => (
-            <li data-testid="user-item" className="user-item" key={item.id}>
-              Name: <Link data-testid={`user-${item.id}`} to ={`/users/${item.id}`} className='user-name'>{item?.name}</Link><br></br>
-              Phone: {item.phone}<br></br>
-              User name: {item.username}<br></br>
-              Website  {item.website}<br></br>
-              <button data-testid={`btn-delete-${item.id}`} onClick={() => handleDeleteUser(item?.id)}>Delete</button>
-            </li>
-          )) : (
-            <p>No data to show</p>
-          )
+          !isLoading && (dataList?.length ?
+            (<ul data-testid="user-list" className="user-list">
+              {
+              dataList.map((item : any) => (
+                <li data-testid="user-item" className="user-item" key={item.id}>
+                  Name: <Link data-testid={`user-${item.id}`} to ={`/users/${item.id}`} className='user-name'>{item?.name}</Link><br></br>
+                  Phone: {item.phone}<br></br>
+                  User name: {item.username}<br></br>
+                  Website  {item.website}<br></br>
+                  <button data-testid={`btn-delete-${item.id}`} onClick={() => handleDeleteUser(item?.id)}>Delete</button>
+                </li>))
+              }
+            </ul>) : <p data-testid="empty">No data to show</p>)
         }
-      </ul>
     </>
   );
 };

@@ -1,22 +1,23 @@
-import { ApiService } from '@app/core/services/api.service';
-import ACTION_TYPES from '@app/core/constants/types';
+/* eslint-disable func-style */
+import { AxiosResponse } from 'axios';
+import { all, put, takeLatest } from 'redux-saga/effects';
 import { getListUserError, getListUserSuccess, getUserDetailSuccess, getUserDetailError } from './user.actions';
-import { put, takeLatest } from 'redux-saga/effects';
+import ACTION_TYPES from '@app/core/constants/types';
+import { UserService } from '@app/core/services/user.service';
+const userService = new UserService();
 
-const http = new ApiService();
-
-function* getListUser() {
+export function* getUsers(){
   try {
-    const res = yield http.get(['https://jsonplaceholder.typicode.com/users']);
+    const res = yield userService.getUsers();
     yield put(getListUserSuccess(res));
   } catch (error) {
     yield put(getListUserError(error));
   }
 }
 
-function* getUserDetail({ payload }: any) {
+export function* getUserDetail({ payload }: any) {
   try {
-    const res = yield http.get([`https://jsonplaceholder.typicode.com/users/${payload.id}`]);
+    const res: AxiosResponse<any> = yield userService.getUserDetail(payload);
     yield put(getUserDetailSuccess(res));
   } catch (error) {
     yield put(getUserDetailError(error));
@@ -24,6 +25,8 @@ function* getUserDetail({ payload }: any) {
 }
 
 export function* watchUsers() {
-  yield takeLatest(ACTION_TYPES.GET_LIST_USER, getListUser);
-  yield takeLatest(ACTION_TYPES.GET_USER_DETAIL, getUserDetail);
+  yield all([
+    takeLatest(ACTION_TYPES.GET_LIST_USER, getUsers),
+    takeLatest(ACTION_TYPES.GET_USER_DETAIL, getUserDetail)
+  ]);
 }
